@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ShoeSectorDevelopmentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="EBayCategoryList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CategoryNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StoreCategoryNumber" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteCategoryNumber" Type="varchar" MaxLength="255" />
+          <Property Name="WebsiteProductAttributeId" Type="int" />
+          <Property Name="GoogleProductCategory" Type="int" />
+          <Property Name="NewEggCategory" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="EbayCategoryStyleList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StyleName" Type="varchar" MaxLength="150" />
+          <Property Name="EbayCategoryNumber" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ItemImageLibrary">
+          <Key>
+            <PropertyRef Name="ItemImageID" />
+          </Key>
+          <Property Name="ItemImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemInventoryRefID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ImageType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImageName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImageNameTN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="QueNumber" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+          <Property Name="ItemGroupCode2" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ItemInventory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ListID" Type="varchar" MaxLength="31" />
+          <Property Name="UPCCode" Type="varchar" MaxLength="50" />
+          <Property Name="ItemGroupCode" Type="varchar" MaxLength="50" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="50" />
+          <Property Name="QuantityOnHand" Type="int" />
+          <Property Name="ReservedQuantity" Type="int" />
+          <Property Name="ItemName" Type="varchar" MaxLength="120" />
+          <Property Name="ItemDescription" Type="varchar(max)" />
+          <Property Name="BrandName" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="Color" Type="varchar" MaxLength="50" />
+          <Property Name="Color2" Type="varchar" MaxLength="50" />
+          <Property Name="Size" Type="varchar" MaxLength="50" />
+          <Property Name="Width" Type="varchar" MaxLength="50" />
+          <Property Name="ShippingGrossWeight" Type="float" />
+          <Property Name="ShppingWidth" Type="float" />
+          <Property Name="ShippingHeight" Type="float" />
+          <Property Name="ShippingLenght" Type="float" />
+          <Property Name="MinSalesPrice" Type="money" />
+          <Property Name="MaxSalesPrice" Type="money" />
+          <Property Name="IsSellable" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+          <Property Name="ModifedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
+          <Property Name="SessionID" Type="uniqueidentifier" />
+          <Property Name="ItemCodeFull" Type="varchar" MaxLength="100" />
+          <Property Name="ItemGroupCode2" Type="varchar" MaxLength="255" />
+          <Property Name="SizeNumeric" Type="float" />
+          <Property Name="AmazonPriceMarkupPercentage" Type="float" Nullable="false" />
+          <Property Name="NumericId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MasterGroupCode" Type="varchar" MaxLength="255" />
+          <Property Name="MasterColorName" Type="varchar" MaxLength="50" />
+          <Property Name="POBatchId" Type="uniqueidentifier" />
+          <Property Name="PurchasePrice" Type="money" />
+          <Property Name="AmazonAvailable" Type="bit" />
+        </EntityType>
+        <EntityType Name="ItemMarketing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemGroupCode2" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ItemTitle" Type="varchar" MaxLength="80" />
+          <Property Name="CategoryNumber1" Type="varchar" MaxLength="50" />
+          <Property Name="CategoryNumber2" Type="varchar" MaxLength="50" />
+          <Property Name="EbayStyle1" Type="varchar" MaxLength="80" />
+          <Property Name="EbayStyle2" Type="varchar" MaxLength="80" />
+          <Property Name="EBayDescription" Type="nvarchar(max)" />
+          <Property Name="WebSiteDescription" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="WebMetaDescription" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="WebSiteItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WebSiteId" Type="bigint" Nullable="false" />
+          <Property Name="UpcNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MasterGroupCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsCompleted" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WebSiteMasterGroupItem">
+          <Key>
+            <PropertyRef Name="MasterGroupCode" />
+          </Key>
+          <Property Name="MasterGroupCode" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="ItemId" Type="bigint" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
+          <Property Name="PublishNote" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ProductID" Type="varchar" MaxLength="32" />
+        </EntityType>
+        <EntityContainer Name="ShoeSectorDevelopmentModelStoreContainer">
+          <EntitySet Name="EBayCategoryList" EntityType="Self.EBayCategoryList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EbayCategoryStyleList" EntityType="Self.EbayCategoryStyleList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemImageLibrary" EntityType="Self.ItemImageLibrary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemInventory" EntityType="Self.ItemInventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemMarketing" EntityType="Self.ItemMarketing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WebSiteItem" EntityType="Self.WebSiteItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WebSiteMasterGroupItem" EntityType="Self.WebSiteMasterGroupItem" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ShoeSectorDevelopmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EBayCategoryList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategoryNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StoreCategoryNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteCategoryNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteProductAttributeId" Type="Int32" />
+          <Property Name="GoogleProductCategory" Type="Int32" />
+          <Property Name="NewEggCategory" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EbayCategoryStyleList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StyleName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="EbayCategoryNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ItemImageLibrary">
+          <Key>
+            <PropertyRef Name="ItemImageID" />
+          </Key>
+          <Property Name="ItemImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemInventoryRefID" Type="Guid" Nullable="false" />
+          <Property Name="ImageType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ImageNameTN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="QueNumber" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ItemGroupCode2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ItemInventory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ListID" Type="String" MaxLength="31" FixedLength="false" Unicode="false" />
+          <Property Name="UPCCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ItemGroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QuantityOnHand" Type="Int32" />
+          <Property Name="ReservedQuantity" Type="Int32" />
+          <Property Name="ItemName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="ItemDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Color2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Width" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShippingGrossWeight" Type="Double" />
+          <Property Name="ShppingWidth" Type="Double" />
+          <Property Name="ShippingHeight" Type="Double" />
+          <Property Name="ShippingLenght" Type="Double" />
+          <Property Name="MinSalesPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MaxSalesPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="IsSellable" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ModifedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SessionID" Type="Guid" />
+          <Property Name="ItemCodeFull" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ItemGroupCode2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SizeNumeric" Type="Double" />
+          <Property Name="AmazonPriceMarkupPercentage" Type="Double" Nullable="false" />
+          <Property Name="NumericId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MasterGroupCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MasterColorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="POBatchId" Type="Guid" />
+          <Property Name="PurchasePrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AmazonAvailable" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ItemMarketing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemGroupCode2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemTitle" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryNumber1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryNumber2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EbayStyle1" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="EbayStyle2" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="EBayDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WebSiteDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="WebMetaDescription" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WebSiteItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WebSiteId" Type="Int64" Nullable="false" />
+          <Property Name="UpcNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MasterGroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="WebSiteMasterGroupItem">
+          <Key>
+            <PropertyRef Name="MasterGroupCode" />
+          </Key>
+          <Property Name="MasterGroupCode" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemId" Type="Int64" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsPublished" Type="Boolean" Nullable="false" />
+          <Property Name="PublishNote" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ShoeSectorDevelopmentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EBayCategoryList" EntityType="Self.EBayCategoryList" />
+          <EntitySet Name="EbayCategoryStyleList" EntityType="Self.EbayCategoryStyleList" />
+          <EntitySet Name="ItemImageLibrary" EntityType="Self.ItemImageLibrary" />
+          <EntitySet Name="ItemInventory" EntityType="Self.ItemInventory" />
+          <EntitySet Name="ItemMarketing" EntityType="Self.ItemMarketing" />
+          <EntitySet Name="WebSiteItem" EntityType="Self.WebSiteItem" />
+          <EntitySet Name="WebSiteMasterGroupItem" EntityType="Self.WebSiteMasterGroupItem" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ShoeSectorDevelopmentModelStoreContainer" CdmEntityContainer="ShoeSectorDevelopmentEntities">
+          <EntitySetMapping Name="EBayCategoryList">
+            <EntityTypeMapping TypeName="ShoeSectorDevelopmentModel.EBayCategoryList">
+              <MappingFragment StoreEntitySet="EBayCategoryList">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryNumber" ColumnName="CategoryNumber" />
+                <ScalarProperty Name="StoreCategoryNumber" ColumnName="StoreCategoryNumber" />
+                <ScalarProperty Name="WebsiteCategoryNumber" ColumnName="WebsiteCategoryNumber" />
+                <ScalarProperty Name="WebsiteProductAttributeId" ColumnName="WebsiteProductAttributeId" />
+                <ScalarProperty Name="GoogleProductCategory" ColumnName="GoogleProductCategory" />
+                <ScalarProperty Name="NewEggCategory" ColumnName="NewEggCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EbayCategoryStyleList">
+            <EntityTypeMapping TypeName="ShoeSectorDevelopmentModel.EbayCategoryStyleList">
+              <MappingFragment StoreEntitySet="EbayCategoryStyleList">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StyleName" ColumnName="StyleName" />
+                <ScalarProperty Name="EbayCategoryNumber" ColumnName="EbayCategoryNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemImageLibrary">
+            <EntityTypeMapping TypeName="ShoeSectorDevelopmentModel.ItemImageLibrary">
+              <MappingFragment StoreEntitySet="ItemImageLibrary">
+                <ScalarProperty Name="ItemImageID" ColumnName="ItemImageID" />
+                <ScalarProperty Name="ItemInventoryRefID" ColumnName="ItemInventoryRefID" />
+                <ScalarProperty Name="ImageType" ColumnName="ImageType" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="ImageNameTN" ColumnName="ImageNameTN" />
+                <ScalarProperty Name="QueNumber" ColumnName="QueNumber" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ItemGroupCode2" ColumnName="ItemGroupCode2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemInventory">
+            <EntityTypeMapping TypeName="ShoeSectorDevelopmentModel.ItemInventory">
+              <MappingFragment StoreEntitySet="ItemInventory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ListID" ColumnName="ListID" />
+                <ScalarProperty Name="UPCCode" ColumnName="UPCCode" />
+                <ScalarProperty Name="ItemGroupCode" ColumnName="ItemGroupCode" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="QuantityOnHand" ColumnName="QuantityOnHand" />
+                <ScalarProperty Name="ReservedQuantity" ColumnName="ReservedQuantity" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Color2" ColumnName="Color2" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="ShippingGrossWeight" ColumnName="ShippingGrossWeight" />
+                <ScalarProperty Name="ShppingWidth" ColumnName="ShppingWidth" />
+                <ScalarProperty Name="ShippingHeight" ColumnName="ShippingHeight" />
+                <ScalarProperty Name="ShippingLenght" ColumnName="ShippingLenght" />
+                <ScalarProperty Name="MinSalesPrice" ColumnName="MinSalesPrice" />
+                <ScalarProperty Name="MaxSalesPrice" ColumnName="MaxSalesPrice" />
+                <ScalarProperty Name="IsSellable" ColumnName="IsSellable" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifedOn" ColumnName="ModifedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="ItemCodeFull" ColumnName="ItemCodeFull" />
+                <ScalarProperty Name="ItemGroupCode2" ColumnName="ItemGroupCode2" />
+                <ScalarProperty Name="SizeNumeric" ColumnName="SizeNumeric" />
+                <ScalarProperty Name="AmazonPriceMarkupPercentage" ColumnName="AmazonPriceMarkupPercentage" />
+                <ScalarProperty Name="NumericId" ColumnName="NumericId" />
+                <ScalarProperty Name="MasterGroupCode" ColumnName="MasterGroupCode" />
+                <ScalarProperty Name="MasterColorName" ColumnName="MasterColorName" />
+                <ScalarProperty Name="POBatchId" ColumnName="POBatchId" />
+                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+                <ScalarProperty Name="AmazonAvailable" ColumnName="AmazonAvailable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemMarketing">
+            <EntityTypeMapping TypeName="ShoeSectorDevelopmentModel.ItemMarketing">
+              <MappingFragment StoreEntitySet="ItemMarketing">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ItemGroupCode2" ColumnName="ItemGroupCode2" />
+                <ScalarProperty Name="ItemTitle" ColumnName="ItemTitle" />
+                <ScalarProperty Name="CategoryNumber1" ColumnName="CategoryNumber1" />
+                <ScalarProperty Name="CategoryNumber2" ColumnName="CategoryNumber2" />
+                <ScalarProperty Name="EbayStyle1" ColumnName="EbayStyle1" />
+                <ScalarProperty Name="EbayStyle2" ColumnName="EbayStyle2" />
+                <ScalarProperty Name="EBayDescription" ColumnName="EBayDescription" />
+                <ScalarProperty Name="WebSiteDescription" ColumnName="WebSiteDescription" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="WebMetaDescription" ColumnName="WebMetaDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WebSiteItem">
+            <EntityTypeMapping TypeName="ShoeSectorDevelopmentModel.WebSiteItem">
+              <MappingFragment StoreEntitySet="WebSiteItem">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="WebSiteId" ColumnName="WebSiteId" />
+                <ScalarProperty Name="UpcNumber" ColumnName="UpcNumber" />
+                <ScalarProperty Name="MasterGroupCode" ColumnName="MasterGroupCode" />
+                <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WebSiteMasterGroupItem">
+            <EntityTypeMapping TypeName="ShoeSectorDevelopmentModel.WebSiteMasterGroupItem">
+              <MappingFragment StoreEntitySet="WebSiteMasterGroupItem">
+                <ScalarProperty Name="MasterGroupCode" ColumnName="MasterGroupCode" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+                <ScalarProperty Name="PublishNote" ColumnName="PublishNote" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
